@@ -19,6 +19,7 @@ export function reset() {
 }
 
 export function addMinutes() {
+  sounds.buttonPress.play()
   if (state.isRunning) {
     return;
   }
@@ -33,6 +34,7 @@ export function addMinutes() {
 }
 
 export function removeMinutes() {
+  sounds.buttonPress.play()
   if (state.isRunning) {
     return;
   }
