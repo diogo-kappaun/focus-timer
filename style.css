@@ -213,6 +213,4 @@ form {
     display: grid;
     grid-template-columns: repeat(2, max-content);
   }
-
-  
 }
