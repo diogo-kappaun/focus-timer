@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --ft-color: hsl(0, 0%, 100%);
+  --bg-color: hsl(240, 6%, 21%);
+  --bg-sounds-color: hsl(204, 5%, 39%);
+  --bg-sounds-hover-color: hsl(194, 100%, 24%);
+  --bg-sounds-focus-color: hsl(194, 97%, 31%);
+  --bg-ipt-color: hsl(240, 6%, 50%);
+
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+html.light {
+  --ft-color: hsl(240, 6%, 21%);
+  --bg-color: hsl(0, 0%, 100%);
+  --bg-sounds-color: hsl(240, 9%, 89%);
+  --ft-sounds-focus-color: hsl(0, 0%, 100%);
+  --bg-ipt-color: hsl(0, 0%, 94%);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--ft-color);
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+
+  height: 100vh;
+
+  place-items: center;
+
+  overflow: hidden;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0px;
+  border: 0;
+  appearance: none;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  color: var(--ft-color);
+
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+
+  cursor: pointer;
+}
+
+#app {
+  align-items: center;
+  justify-content: center;
+  gap: 19.2rem;
+
+  padding: 3.2rem;
+}
+
+html.music-on .ph-play,
+html:not(.music-on) .ph-pause {
+  display: none;
+}
+
+#toggle-mode {
+  position: absolute;
+  top: 3.2rem;
+  margin: 0 auto;
+
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  color: var(--ft-color);
+}
+
+.light .ph-moon,
+html:not(.light) .ph-sun {
+  display: none;
+}
+
+#timer-controls {
+  max-width: 32.5rem;
+}
+
+#timer {
+  font-size: 12.6rem;
+  color: var(--ft-color);
+
+  margin-bottom: 0.8rem;
+}
+
+#controls {
+  justify-content: center;
+  gap: 4rem;
+}
+
+#controls button {
+  font-size: 4.8rem;
+  line-height: 4.8rem;
+}
+
+.running .ph-play-circle,
+.running .ph-plus-circle,
+.running .ph-minus-circle,
+html:not(.running) .ph-pause-circle {
+  display: none;
+}
+
+#sounds-options {
+  position: absolute;
+  bottom: 9.6rem;
+  gap: 3.2rem;
+}
+
+#sounds-options button {
+  width: 8rem;
+  height: 8rem;
+
+  background-color: var(--bg-sounds-color);
+  border-radius: 1rem;
+
+  font-size: 3.2rem;
+  box-shadow: 0 3px 5px #00000009;
+
+  &:hover {
+    background-color: var(--bg-sounds-hover-color);
+    color: var(--ft-sounds-focus-color);
+  }
+}
+
+#sounds-options button.selected {
+  background-color: var(--bg-sounds-focus-color);
+  color: var(--ft-sounds-focus-color);
+}
+
+form {
+  display: none;
+  position: absolute;
+  bottom: 1.6rem;
+  padding: 1rem;
+
+  background-color: var(--bg-sounds-color);
+
+  border-radius: 0.8rem;
+  animation: moveY 0.7s ease-in-out backwards;
+  box-shadow: 0 3px 10px #00000017;
+}
+
+#volume-range {
+  appearance: none;
+  background-color: var(--bg-ipt-color);
+  border-radius: 0.4rem;
+  width: 100%;
+  height: 1.2rem;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.6rem;
+    height: 2rem;
+    background-color: var(--ft-color);
+    border-radius: 0.4rem;
+  }
+}
+
+.control-on {
+  display: block;
+}
+
+.animate {
+  animation: moveYend 0.7s ease-in-out forwards;
+}
+
+@keyframes moveY {
+  0% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+}
+
+@keyframes moveYend {
+  100% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+}
